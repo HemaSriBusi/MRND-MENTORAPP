@@ -23,6 +23,7 @@ from onlineapp import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('onlineapp/',include('onlineapp.urls'))
+    path('rest-auth/', include('rest_auth.urls')),
 ]
 
 if settings.DEBUG:

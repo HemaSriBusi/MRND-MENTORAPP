@@ -3,8 +3,13 @@ from rest_framework.views import APIView
 from onlineapp.Serializer import *
 from onlineapp.models import *
 from rest_framework.response import Response
+from rest_framework.authentication import *
+from rest_framework.permissions import *
+
 
 class StudentAPIView(APIView):
+    authentication_classes = (BasicAuthentication, TokenAuthentication,SessionAuthentication)
+    permission_classes = (IsAuthenticated,)
 
     def get(self,request,*args,**kwargs):
         if 'cpk' in kwargs.keys() and 'spk' in kwargs.keys():

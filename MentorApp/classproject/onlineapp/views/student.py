@@ -91,5 +91,6 @@ class AddStudentView(View):
                         total_marks += int(request.POST['problem' + str(i)])
                     mocktest.total = total_marks
                     mocktest.save()
+                    print(mocktest)
                     return redirect('/colleges')
 

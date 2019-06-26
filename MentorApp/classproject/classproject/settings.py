@@ -25,7 +25,7 @@ SECRET_KEY = ')#2z1=t@6y_8#4byulk0m$#@mml(oyu6md^s!q3_y=82-q(zg_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["sma","localhost","127.0.0.1"]
 
 STATICFILES_DIRS = [ "/summer/classproject/onlineapp/static"]
 # Application definition
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+
 ]
 
 MIDDLEWARE = [
@@ -106,6 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

@@ -6,8 +6,10 @@ from django.urls import include # For django versions from 2.0 and up
 from onlineapp import views
 from onlineapp import urls
 from .views import *
+from onlineapp import funcviews
 
 urlpatterns = [
+    path('testpath/',funcviews.my_first_view ),
     path('api/v1/colleges/',CollegeListView.as_view(),name="CollegeAPI"),
     path('api/v1/colleges/<int:id>',college_details_idView.as_view(),name="CollegeDetailsAPI"),
     path('api/v1/colleges/<int:cpk>/students',StudentAPIView.as_view(),name="ClgStudentsDetailsAPI"),
